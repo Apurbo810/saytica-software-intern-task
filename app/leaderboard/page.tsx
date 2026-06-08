@@ -27,20 +27,22 @@ export default function Leaderboard() {
     },
     {
       key: "evaluatedAt",
-      label: "evaluated",
+      label: "Evaluated",
     },
   ] as const;
 
   return (
-    <div className="flex flex-1 flex-col p-6">
-      <h1 className="mb-6 text-2xl font-bold">
-        Model Leaderboard
-      </h1>
+    <div className="min-h-screen bg-yellow-500/10 p-6">
+      <div className="mx-auto max-w-7xl rounded-2xl border border-yellow-500/20 bg-base-100 p-6 shadow-lg">
+        <h1 className="mb-6 text-3xl font-bold text-yellow-600">
+          Model Leaderboard
+        </h1>
 
-      <Table
-        data={models}
-        columns={columns}
-      />
+        <Table
+          data={models}
+          columns={columns}
+        />
+      </div>
     </div>
   );
 }

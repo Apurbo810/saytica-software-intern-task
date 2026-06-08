@@ -2,15 +2,26 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center gap-4">
-      <Link href="/leaderboard" className="btn btn-primary">
-        Leaderboard
+    <div className="flex min-h-screen">
+      {/* Left - Leaderboard */}
+      <Link
+        href="/leaderboard"
+        className="flex flex-1 items-center justify-center bg-yellow-500 transition hover:bg-yellow-600"
+      >
+        <h1 className="text-5xl font-bold text-black">
+          Leaderboard
+        </h1>
       </Link>
 
-      <Link href="/task-board" className="btn btn-outline btn-secondary">
-        Task Board
+      {/* Right - Task Board */}
+      <Link
+        href="/task-board"
+        className="flex flex-1 items-center justify-center bg-slate-800 transition hover:bg-slate-900"
+      >
+        <h1 className="text-5xl font-bold text-white">
+          Task Board
+        </h1>
       </Link>
-      <button className="btn btn-primary">Button</button>
     </div>
   );
 }
