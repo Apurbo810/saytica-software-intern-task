@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import Table from "@/components/table/table";
 import ThemeSetter from "@/components/theme-setter";
 import { getModels } from "@/lib/model";
@@ -37,6 +39,13 @@ export default function Leaderboard() {
       <ThemeSetter theme="cyberpunk" />
 
       <div className="mx-auto max-w-7xl rounded-2xl border border-yellow-500/20 bg-base-100 p-6 shadow-lg">
+        <Link
+          href="/"
+          className="btn btn-outline btn-sm mb-4"
+        >
+          Back Home
+        </Link>
+
         <h1 className="mb-6 text-3xl font-bold text-yellow-600">
           Model Leaderboard
         </h1>

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 
 import Table from "@/components/table/table";
@@ -162,6 +163,13 @@ export default function TaskBoard() {
   return (
   <div className="min-h-screen bg-base-200 p-6 text-base-content">
     <ThemeSetter theme="garden" />
+
+    <Link
+      href="/"
+      className="btn btn-outline btn-sm mb-4"
+    >
+      Back Home
+    </Link>
 
     <h1 className="mb-6 text-3xl font-bold">
       Task Board
