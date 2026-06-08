@@ -1,4 +1,5 @@
 import Table from "@/components/table/table";
+import ThemeSetter from "@/components/theme-setter";
 import { getModels } from "@/lib/model";
 
 export default function Leaderboard() {
@@ -33,6 +34,8 @@ export default function Leaderboard() {
 
   return (
     <div className="min-h-screen bg-yellow-500/10 p-6">
+      <ThemeSetter theme="cyberpunk" />
+
       <div className="mx-auto max-w-7xl rounded-2xl border border-yellow-500/20 bg-base-100 p-6 shadow-lg">
         <h1 className="mb-6 text-3xl font-bold text-yellow-600">
           Model Leaderboard

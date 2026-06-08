@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import Table from "@/components/table/table";
+import ThemeSetter from "@/components/theme-setter";
 import { getTasks } from "@/lib/tasks";
 import { Task } from "@/types/task";
 
@@ -159,76 +160,80 @@ export default function TaskBoard() {
   );
 
   return (
-    <div className="flex flex-1 flex-col p-6">
-      <h1 className="mb-6 text-2xl font-bold">
-        Task Board
-      </h1>
+  <div className="min-h-screen bg-base-200 p-6 text-base-content">
+    <ThemeSetter theme="garden" />
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
-        <div className="rounded-lg border bg-base-100 p-4 shadow-sm">
-          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-xl font-semibold">
-              Client
-            </h2>
+    <h1 className="mb-6 text-3xl font-bold">
+      Task Board
+    </h1>
 
-            <select
-              className="select select-bordered select-sm w-full sm:w-40"
-              value={selectedClientId}
-              onChange={(event) =>
-                setSelectedClientId(
-                  event.target.value
-                )
-              }
-            >
-              {clientIds.map((clientId) => (
-                <option
-                  key={clientId}
-                  value={clientId}
-                >
-                  {clientId}
-                </option>
-              ))}
-            </select>
-          </div>
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      {/* Client */}
+      <div className="rounded-2xl border border-base-300 bg-base-100 p-5 shadow-lg">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-xl font-semibold">
+            Client
+          </h2>
 
-          <Table
-            data={clientTasks}
-            columns={clientColumns}
-          />
+          <select
+            className="select select-bordered select-sm w-full sm:w-40"
+            value={selectedClientId}
+            onChange={(event) =>
+              setSelectedClientId(
+                event.target.value
+              )
+            }
+          >
+            {clientIds.map((clientId) => (
+              <option
+                key={clientId}
+                value={clientId}
+              >
+                {clientId}
+              </option>
+            ))}
+          </select>
         </div>
 
-        <div className="rounded-lg border bg-base-100 p-4 shadow-sm">
-          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <h2 className="text-xl font-semibold">
-              Annotator
-            </h2>
+        <Table
+          data={clientTasks}
+          columns={clientColumns}
+        />
+      </div>
 
-            <select
-              className="select select-bordered select-sm w-full sm:w-44"
-              value={selectedAnnotator}
-              onChange={(event) =>
-                setSelectedAnnotator(
-                  event.target.value
-                )
-              }
-            >
-              {annotators.map((annotator) => (
-                <option
-                  key={annotator}
-                  value={annotator}
-                >
-                  {annotator}
-                </option>
-              ))}
-            </select>
-          </div>
+      {/* Annotator */}
+      <div className="rounded-2xl border border-base-300 bg-base-100 p-5 shadow-lg">
+        <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-xl font-semibold">
+            Annotator
+          </h2>
 
-          <Table
-            data={annotatorTasks}
-            columns={annotatorColumns}
-          />
+          <select
+            className="select select-bordered select-sm w-full sm:w-44"
+            value={selectedAnnotator}
+            onChange={(event) =>
+              setSelectedAnnotator(
+                event.target.value
+              )
+            }
+          >
+            {annotators.map((annotator) => (
+              <option
+                key={annotator}
+                value={annotator}
+              >
+                {annotator}
+              </option>
+            ))}
+          </select>
         </div>
+
+        <Table
+          data={annotatorTasks}
+          columns={annotatorColumns}
+        />
       </div>
     </div>
-  );
+  </div>
+);
 }
