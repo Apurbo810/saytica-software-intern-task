@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={geistSans.variable}>
-      <body className="min-h-screen bg-base-100 text-base-content font-sans antialiased">
+      <body suppressHydrationWarning className="min-h-screen bg-base-100 text-base-content font-sans antialiased">
         <main className="flex min-h-screen flex-col">
           {children}
         </main>

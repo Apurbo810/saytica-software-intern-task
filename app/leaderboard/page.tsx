@@ -25,6 +25,10 @@ export default function Leaderboard() {
       key: "costPer1k",
       label: "Cost",
     },
+    {
+      key: "evaluatedAt",
+      label: "evaluated",
+    },
   ] as const;
 
   return (
